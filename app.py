@@ -64,7 +64,7 @@ def handle_message(event):
         # Confirm Template
         if text == 'Confirm':
             confirm_template = ConfirmTemplate(
-                text='今天開心嗎?',
+                text='今天學程式了嗎?',
                 actions=[
                     MessageAction(label='是', text='是!'),
                     MessageAction(label='否', text='否!')
@@ -82,21 +82,21 @@ def handle_message(event):
             )
         # Buttons Template
         elif text == 'Buttons':
-            url = request.url_root + 'static/coffee.jpg'
+            url = request.url_root + 'static/Logo.jpg'
             url = url.replace("http", "https")
             app.logger.info("url=" + url)
             buttons_template = ButtonsTemplate(
                 thumbnail_image_url=url,
-                title='咖啡',
-                text='咖啡是一種由咖啡樹果實的種子——咖啡豆——經過後製處理、烘焙、研磨後沖泡而成的飲品。 它以其獨特的香氣和提神效果聞名於世，成為全球最受歡迎的飲品之一。',
+                title='示範',
+                text='詳細說明',
                 actions=[
-                     URIAction(label='連結', uri='https://treeman.tw/coffee_type/'),
-                     PostbackAction(label='回傳值', data='ping', displayText='傳了'),
-                     MessageAction(label='傳"哈囉"', text='哈囉'),
+                    # URIAction(label='連結', uri='https://www.facebook.com/NTUEBIGDATAEDU'),
+                    # PostbackAction(label='回傳值', data='ping', displayText='傳了'),
+                    # MessageAction(label='傳"哈囉"', text='哈囉'),
                     # DatetimePickerAction(label="選擇時間", data="時間", mode="datetime"),
-                    #CameraAction(label='拍照'),
-                    #CameraRollAction(label='選擇相片'),
-                    #LocationAction(label='選擇位置')
+                    CameraAction(label='拍照'),
+                    CameraRollAction(label='選擇相片'),
+                    LocationAction(label='選擇位置')
                 ]
             )
             template_message = TemplateMessage(
@@ -118,7 +118,7 @@ def handle_message(event):
                 columns=[
                     CarouselColumn(
                         thumbnail_image_url=url,
-                        title='Google',
+                        title='第一項',
                         text='這是第一項的描述',
                         actions=[
                             URIAction(
@@ -129,7 +129,7 @@ def handle_message(event):
                     ),
                     CarouselColumn(
                         thumbnail_image_url=url,
-                        title='Yahoo',
+                        title='第二項',
                         text='這是第二項的描述',
                         actions=[
                             URIAction(
